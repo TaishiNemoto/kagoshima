@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鹿児島ラーメン店リスト</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        #ramen-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .ramen-item {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .ramen-item h2 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #333;
+        }
+        .ramen-item a {
+            color: #1CAAD9;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .ramen-item a:hover {
+            text-decoration: underline;
+        }
+        iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; margin-bottom: 20px;">鹿児島ラーメン店リスト</h1>
+    <div id="ramen-list"></div>
+    <script>const ramenData = [
+    {
+        name: "麺や。丁",
+        address: "鹿児島市脇田町",
+        sketchfabModelId: "0f584acbeb4744c0a601690070daee01"
+    },
+    {
+        name: "麺屋ばってん親父",
+        address: "鹿児島市上荒田町31-18 アトムハウス 101",
+        sketchfabModelId: "XXXXXXXXX"
+    },
+    {
+        name: "あぶらや",
+        address: "鹿児島市中央町",
+        sketchfabModelId: "YYYYYYYYY"
+    },
+    {
+        name: "きよし家",
+        address: "鹿児島市東千石町",
+        sketchfabModelId: "ZZZZZZZZZ"
+    },
+    {
+        name: "樹凜",
+        address: "鹿児島市山之口町",
+        sketchfabModelId: "AAAAAAAAA"
+    },
+    {
+        name: "雲雀",
+        address: "鹿児島市谷山中央",
+        sketchfabModelId: "BBBBBBBBB"
+    },
+    {
+        name: "博多ラーメン喜喜",
+        address: "鹿児島市下荒田",
+        sketchfabModelId: "CCCCCCCCC"
+    },
+    {
+        name: "丸源ラーメン",
+        address: "鹿児島市与次郎",
+        sketchfabModelId: "DDDDDDDDD"
+    }
+];
+
+document.addEventListener("DOMContentLoaded", () => {
+    const ramenListElement = document.getElementById("ramen-list");
+
+    ramenData.forEach((ramen) => {
+        const item = document.createElement("div");
+        item.classList.add("ramen-item");
+
+        // 店舗名
+        const nameElement = document.createElement("h2");
+        nameElement.textContent = ramen.name;
+        item.appendChild(nameElement);
+
+        // Googleマップリンク
+        const addressLink = document.createElement("a");
+        addressLink.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ramen.address)}`;
+        addressLink.target = "_blank";
+        addressLink.textContent = `住所: ${ramen.address}`;
+        item.appendChild(addressLink);
+
+        // Sketchfab埋め込み
+        const iframe = document.createElement("iframe");
+        iframe.src = `https://sketchfab.com/models/${ramen.sketchfabModelId}/embed?autospin=1`;
+        iframe.title = ramen.name;
+        iframe.allow = "autoplay; fullscreen; xr-spatial-tracking";
+        item.appendChild(iframe);
+
+        ramenListElement.appendChild(item);
+    });
+});
+</script>
+</body>
+</html>
