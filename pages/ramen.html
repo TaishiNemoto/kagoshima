@@ -4,53 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>鹿児島ラーメン店リスト</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        #ramen-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .ramen-item {
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .ramen-item h2 {
-            margin: 0 0 10px;
-            font-size: 20px;
-            color: #333;
-        }
-        .ramen-item a {
-            color: #1CAAD9;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-        }
-        .ramen-item a:hover {
-            text-decoration: underline;
-        }
-        iframe {
-            width: 100%;
-            height: 200px;
-            border: none;
-            margin-top: 10px;
-        }
-    </style>
+    <!-- CSSファイルを読み込む -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1 style="text-align: center; margin-bottom: 20px;">鹿児島ラーメン店リスト</h1>
     <div id="ramen-list"></div>
-    <script>const ramenData = [
+    <script src="ramen.js"></script>
+</body>
+
+<script>const ramenData = [
     {
         name: "麺や。丁",
         address: "鹿児島市脇田町",
@@ -123,5 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
-</body>
+    
 </html>
+
