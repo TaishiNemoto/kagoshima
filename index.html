@@ -3,145 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鹿児島市 温泉・銭湯ガイド</title>
-    <link rel="stylesheet" href="styles.css">
-    
+    <title>かごしまにイタッキモンデ〜温泉ラーメンMAP〜</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fef6e4; /* 優しい背景色 */
+            text-align: center;
+            color: #333;
+        }
+        h1 {
+            font-size: 28px;
+            margin: 20px 0;
+            color: #ff6f61; /* 明るいオレンジ色 */
+        }
+        .app-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .app-card {
+            background: #ffffff; /* 白い背景 */
+            border: 2px solid #ff6f61; /* オレンジ色の枠線 */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .app-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+        .app-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .app-card h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .app-card a {
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #ff6f61; /* ボタン背景色 */
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .app-card a:hover {
+            background-color: #e65a50; /* ボタンのホバー色 */
+        }
+    </style>
 </head>
 <body>
-    <h1>鹿児島市 温泉・銭湯ガイド</h1>
-
-    <div id="filters">
-        <input type="text" id="search-box" placeholder="施設名や泉質で検索">
-        <select id="effect-filter">
-            <option value="">すべての効能</option>
-            <option value="美肌効果">美肌効果</option>
-            <option value="疲労回復">疲労回復</option>
-            <option value="神経痛の緩和">神経痛の緩和</option>
-            <option value="冷え性改善">冷え性改善</option>
-            <option value="リラクゼーション">リラクゼーション</option>
-            <option value="筋肉痛の緩和">筋肉痛の緩和</option>
-        </select>
+    <h1>かごしまにイタッキモンデ〜温泉ラーメンMAP〜</h1>
+    <div class="app-container">
+        <!-- 温泉アプリ -->
+        <div class="app-card">
+            <img src="onsen-thumbnail.jpg" alt="温泉">
+            <h2>温泉MAP</h2>
+            <a href="onsen.html">開く</a>
+        </div>
+        <!-- ラーメンアプリ -->
+        <div class="app-card">
+            <img src="ramen-thumbnail.jpg" alt="ラーメン">
+            <h2>ラーメンMAP</h2>
+            <a href="ramen.html">開く</a>
+        </div>
+        <!-- スタンプラリー -->
+        <div class="app-card">
+            <img src="stamp-thumbnail.jpg" alt="スタンプラリー">
+            <h2>スタンプラリー</h2>
+            <a href="stamp.html">開く</a>
+        </div>
     </div>
-
-    <div id="onsen-list">
-        <!-- 温泉情報がここに表示されます -->
-    </div>
-
-    <!-- 泉質説明セクション -->
-   <footer id="spring-quality-info">
-    <h2>温泉の泉質について</h2>
-    <p><strong>塩化物泉:</strong> 保湿効果が高く、冷え性や疲労回復に効果的です。</p>
-    <p><strong>炭酸水素塩泉:</strong> 古い角質を落とす効果があり、美肌の湯として知られています。</p>
-    <p><strong>単純温泉:</strong> 刺激が少なく、リラクゼーションや疲労回復に適しています。</p>
-    <p><strong>硫黄泉:</strong> 独特の香りが特徴で、皮膚病や関節痛に効果があります。</p>
-    <p><strong>含鉄泉:</strong> 鉄分を多く含み、貧血の改善や血行促進が期待できます。</p>
-
-    <h2>鹿児島の温泉の歴史</h2>
-    <p>
-        鹿児島県は、桜島火山を中心に豊富な火山活動が特徴で、この地形から湧き出る温泉が古くから親しまれてきました。桜島は現在も活動を続ける活火山であり、その地熱と地下水が融合することで、多様な泉質の温泉が誕生しています。特に、鹿児島の温泉は「塩化物泉」や「炭酸水素塩泉」が多く、美肌効果や保湿効果が高いことで知られています。
-    </p>
-    <p>
-        江戸時代には、島津藩が鹿児島の温泉を養生場として利用し、地元住民や旅人に開放しました。特に指宿温泉は、江戸時代から湯治場として人気を集め、全国から訪れる人々で賑わいました。また、鹿児島市内では、昭和時代に銭湯文化が広がり、多くの温泉施設が市街地に誕生しました。現在でも鹿児島市内には40軒以上の銭湯や温泉施設が点在し、市民の日常生活に欠かせない存在となっています。
-    </p>
-    <p>
-        鹿児島の温泉の特色は、その多様性にあります。例えば、桜島周辺では「含鉄泉」や「硫黄泉」が湧き出ており、これらの温泉は独特の香りと色を持ち、関節痛や疲労回復に効果があるとされています。一方、市街地や山間部では、「単純温泉」が多く、刺激が少ないため家族連れや高齢者に人気です。さらに、海に近いエリアでは「塩化物泉」が多く、塩分が肌を覆うことで保湿効果が得られることから「美人の湯」としても知られています。
-    </p>
-    <p>
-        現在、鹿児島の温泉文化は地域活性化の一環としても注目されています。温泉を活用した観光地づくりや、地元食材を使った料理とのコラボレーションイベントが行われ、全国から観光客を呼び込む取り組みが進んでいます。鹿児島の温泉は、その歴史と自然の恩恵を感じられる場所として、これからも地域の誇りとして愛され続けるでしょう。
-    </p>
-</footer>
-
-
-    <script>
-// 鹿児島市内の銭湯・温泉データ
-const onsenData = [
-    { name: "温泉錦湯", springQuality: "塩化物泉", effects: "情報なし", address: "鹿児島市下荒田3-3-17" },
-    { name: "坂元温泉", springQuality: "炭酸水素塩泉", effects: "美肌効果、神経痛の緩和", address: "鹿児島市坂元町18-19" },
-    { name: "春日温泉", springQuality: "塩化物泉", effects: "保湿効果、冷え性改善", address: "鹿児島市下荒田1丁目28-1" },
-    { name: "霧島温泉", springQuality: "塩化物泉", effects: "筋肉痛、関節痛の緩和", address: "鹿児島市西千石町6-20" },
-    { name: "吉野温泉", springQuality: "炭酸水素塩泉", effects: "美肌効果、疲労回復", address: "鹿児島市吉野1丁目41-6" },
-    { name: "渓谷苑", springQuality: "ナトリウム-塩化物・硫酸塩泉", effects: "神経痛、筋肉痛の緩和", address: "鹿児島市東佐多町710-2" },
-    { name: "永盛温泉", springQuality: "単純温泉", effects: "リラクゼーション、疲労回復", address: "鹿児島市西佐多町3227-1" },
-    { name: "福助温泉", springQuality: "単純温泉", effects: "リラクゼーション、神経痛の緩和", address: "鹿児島市伊敷1-16-25" },
-    { name: "温泉お乃湯", springQuality: "塩化物泉（ナトリウム塩化物・炭酸水素塩泉）", effects: "保湿効果、疲労回復", address: "鹿児島市小野3-5-27" },
-    { name: "大黒温泉", springQuality: "単純温泉", effects: "疲労回復、筋肉痛の緩和", address: "鹿児島市伊敷8-22-20" },
-    { name: "花野温泉たぬき湯", springQuality: "単純泉", effects: "美肌効果、リラクゼーション", address: "鹿児島市伊敷町4467" },
-    { name: "芦刈温泉", springQuality: "炭酸水素塩泉（ナトリウム-炭酸水素塩泉）", effects: "美肌効果、疲労回復", address: "鹿児島市若葉町45-1" },
-    { name: "みどり温泉", springQuality: "情報なし", effects: "情報なし", address: "鹿児島市岡之原町130" },
-    { name: "薬師温泉", springQuality: "塩化物泉", effects: "保湿効果、筋肉痛の緩和", address: "鹿児島市薬師1-22-36" },
-    { name: "はらら温泉", springQuality: "単純温泉", effects: "リラクゼーション、疲労回復", address: "鹿児島市原良4-2-7" },
-    { name: "永吉温泉", springQuality: "炭酸水素塩泉", effects: "美肌効果、神経痛の緩和", address: "鹿児島市永吉1-33-6" },
-    { name: "めいわ温泉", springQuality: "炭酸水素塩泉", effects: "美肌効果、疲労回復", address: "鹿児島市明和1-25-1" },
-    { name: "武岡温泉", springQuality: "炭酸水素塩泉", effects: "神経痛、筋肉痛の緩和", address: "鹿児島市田上6-9-26" },
-    { name: "鹿児島温泉時之栖", springQuality: "塩化物泉", effects: "疲労回復、リラクゼーション", address: "鹿児島市田上6-1-6" },
-    { name: "新川温泉", springQuality: "塩化物泉", effects: "保湿効果、冷え性改善", address: "鹿児島市唐湊4-7-8" },
-    { name: "新とそ温泉", springQuality: "塩化物泉", effects: "保湿効果、疲労回復", address: "鹿児島市唐湊1-29-1" },
-    { name: "竹迫温泉", springQuality: "塩化物泉", effects: "美肌効果、冷え性改善", address: "鹿児島市下荒田3-22-10" },
-    { name: "みずほ温泉", springQuality: "塩化物泉", effects: "保湿効果、リラクゼーション", address: "鹿児島市上荒田町32-14" },
-    { name: "亀乃湯", springQuality: "人工温泉", effects: "疲労回復、リラクゼーション", address: "鹿児島市三和町64-16" },
-    { name: "真砂温泉", springQuality: "塩化物泉", effects: "筋肉痛、疲労回復", address: "鹿児島市真砂町59-19" },
-    { name: "一本桜温泉センター", springQuality: "塩化物泉", effects: "疲労回復、冷え性改善", address: "鹿児島市紫原6-1-18" },
-    { name: "郡元温泉", springQuality: "塩化物泉", effects: "保湿効果、疲労回復", address: "鹿児島市南郡元町3-1" },
-    { name: "慈眼寺温泉", springQuality: "単純泉", effects: "疲労回復、リラクゼーション", address: "鹿児島市谷山中央6-35-20" },
-    { name: "中山温泉", springQuality: "塩化物泉", effects: "筋肉痛、冷え性改善", address: "鹿児島市中山町1390" }
-];
-
-// 温泉情報を表示する関数
-function displayOnsenInfo(filterText = "", filterEffect = "") {
-    const onsenList = document.getElementById("onsen-list");
-    onsenList.innerHTML = ""; // 一度リストをクリア
-
-    onsenData
-        .filter(onsen =>
-            (onsen.name.includes(filterText) ||
-                onsen.springQuality.includes(filterText)) &&
-            (filterEffect === "" || onsen.effects.includes(filterEffect))
-        )
-        .forEach(onsen => {
-            const card = document.createElement("div");
-            card.className = "onsen-card";
-
-            const name = document.createElement("h2");
-            name.textContent = onsen.name;
-
-            const springQuality = document.createElement("p");
-            springQuality.textContent = `泉質: ${onsen.springQuality}`;
-
-            const effects = document.createElement("p");
-            effects.textContent = `効能: ${onsen.effects}`;
-
-            const address = document.createElement("p");
-            address.innerHTML = `住所: <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(onsen.address)}" target="_blank">${onsen.address}</a>`;
-            address.style.color = "#007BFF";
-
-            card.appendChild(name);
-            card.appendChild(springQuality);
-            card.appendChild(effects);
-            card.appendChild(address);
-
-            onsenList.appendChild(card);
-        });
-}
-
-// イベントリスナーを設定
-document.getElementById("search-box").addEventListener("input", (event) => {
-    const filterText = event.target.value;
-    const filterEffect = document.getElementById("effect-filter").value;
-    displayOnsenInfo(filterText, filterEffect);
-});
-
-document.getElementById("effect-filter").addEventListener("change", (event) => {
-    const filterEffect = event.target.value;
-    const filterText = document.getElementById("search-box").value;
-    displayOnsenInfo(filterText, filterEffect);
-});
-
-// 初期表示
-document.addEventListener("DOMContentLoaded", () => displayOnsenInfo());
-
-
-
-        
-	</script>
 </body>
 </html>
+
+
