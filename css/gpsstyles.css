@@ -1,0 +1,63 @@
+/* 全体の設定 */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fef6e4; /* 優しい背景色 */
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* ヘッダー */
+h1 {
+    color: #ff6f61; /* 明るいオレンジ色 */
+    margin-bottom: 20px;
+}
+
+/* 温泉リストエリア */
+#onsen-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* 温泉カード */
+.onsen-card {
+    background: #fff;
+    border: 2px solid #ff6f61;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.onsen-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.onsen-card.stamped {
+    background: #c8e6c9; /* 緑色の背景でスタンプ取得を示す */
+    border-color: #2e7d32;
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+/* スタンプ済みリスト */
+#stamped-list {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+#stamped-list li {
+    margin: 5px 0;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
