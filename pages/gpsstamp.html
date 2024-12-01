@@ -16,6 +16,96 @@
         <h2>スタンプが押された温泉</h2>
         <ul id="stamped-list"></ul>
     </div>
-    <script src="script.js"></script>
+    <script>const onsenData = [
+    { name: "坂元温泉", lat: 31.5904, lng: 130.5611 },
+    { name: "春日温泉", lat: 31.5765, lng: 130.5542 },
+    { name: "霧島温泉", lat: 31.5900, lng: 130.5520 },
+    { name: "吉野温泉", lat: 31.6340, lng: 130.5920 },
+    { name: "渓谷苑", lat: 31.7356, lng: 130.5731 },
+    { name: "永盛温泉", lat: 31.7500, lng: 130.5500 },
+    { name: "福助温泉", lat: 31.6000, lng: 130.5500 },
+    { name: "温泉お乃湯", lat: 31.6200, lng: 130.5400 },
+    { name: "大黒温泉", lat: 31.6100, lng: 130.5400 },
+    { name: "花野温泉たぬき湯", lat: 31.5812, lng: 130.5535 },
+    { name: "芦刈温泉", lat: 31.5700, lng: 130.5500 },
+    { name: "みどり温泉", lat: 31.6300, lng: 130.5400 },
+    { name: "薬師温泉", lat: 31.5800, lng: 130.5500 },
+    { name: "はらら温泉", lat: 31.5900, lng: 130.5500 },
+    { name: "永吉温泉", lat: 31.6000, lng: 130.5500 },
+    { name: "めいわ温泉", lat: 31.6100, lng: 130.5400 },
+    { name: "武岡温泉", lat: 31.5700, lng: 130.5400 },
+    { name: "鹿児島温泉時之栖", lat: 31.5700, lng: 130.5400 },
+    { name: "新川温泉", lat: 31.5800, lng: 130.5400 },
+    { name: "新とそ温泉", lat: 31.5800, lng: 130.5400 },
+    { name: "竹迫温泉", lat: 31.5700, lng: 130.5500 },
+    { name: "温泉錦湯", lat: 31.5700, lng: 130.5500 },
+    { name: "みずほ温泉", lat: 31.5800, lng: 130.5500 },
+    { name: "亀乃湯", lat: 31.5800, lng: 130.5500 },
+    { name: "真砂温泉", lat: 31.5587, lng: 130.5521 },
+    { name: "一本桜温泉センター", lat: 31.5700, lng: 130.5500 },
+    { name: "郡元温泉", lat: 31.5700, lng: 130.5500 },
+    { name: "慈眼寺温泉", lat: 31.5200, lng: 130.5200 },
+    { name: "中山温泉", lat: 31.5200, lng: 130.5200 },
+    { name: "轟温泉", lat: 31.5200, lng: 130.5200 },
+    { name: "神之川温泉", lat: 31.5200, lng: 130.5200 },
+    { name: "かいせい乃湯", lat: 31.5700, lng: 130.5400 },
+    { name: "城山長寿泉", lat: 31.5900, lng: 130.5500 }
+];
+
+document.addEventListener("DOMContentLoaded", () => {
+    const onsenListElement = document.getElementById("onsen-list");
+    const stampedList = document.getElementById("stamped-list");
+
+    // 温泉リストを動的に生成
+    onsenData.forEach((onsen) => {
+        const card = document.createElement("div");
+        card.classList.add("onsen-card");
+        card.textContent = onsen.name;
+        card.dataset.lat = onsen.lat;
+        card.dataset.lng = onsen.lng;
+        onsenListElement.appendChild(card);
+    });
+
+    // テスト用の位置データ (坂元温泉に近づいたシミュレーション)
+    const testUserLat = 31.5904; // 緯度
+    const testUserLng = 130.5611; // 経度
+
+    // GPS情報のシミュレーション
+    simulateGPS(testUserLat, testUserLng);
+
+    function simulateGPS(userLat, userLng) {
+        document.querySelectorAll(".onsen-card").forEach((onsen) => {
+            const onsenLat = parseFloat(onsen.dataset.lat);
+            const onsenLng = parseFloat(onsen.dataset.lng);
+
+            const distance = calculateDistance(userLat, userLng, onsenLat, onsenLng);
+            if (distance < 0.5 && !onsen.classList.contains("stamped")) {
+                // スタンプ処理
+                onsen.classList.add("stamped");
+                const stampedItem = document.createElement("li");
+                stampedItem.textContent = `${onsen.textContent} (スタンプ獲得！)`;
+                stampedList.appendChild(stampedItem);
+
+                alert(`${onsen.textContent}のスタンプを獲得しました！`);
+            }
+        });
+    }
+
+    // 距離計算関数
+    function calculateDistance(lat1, lng1, lat2, lng2) {
+        const R = 6371; // 地球の半径 (km)
+        const dLat = ((lat2 - lat1) * Math.PI) / 180;
+        const dLng = ((lng2 - lng1) * Math.PI) / 180;
+        const a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos((lat1 * Math.PI) / 180) *
+                Math.cos((lat2 * Math.PI) / 180) *
+                Math.sin(dLng / 2) *
+                Math.sin(dLng / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c; // 距離 (km)
+    }
+});
+</script>
 </body>
 </html>
