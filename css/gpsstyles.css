@@ -18,15 +18,18 @@ h1 {
 }
 
 /* 温泉リストエリア */
+/* 温泉リストエリア */
 #onsen-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin: 0 auto; /* ページ中央揃え */
-    max-width: 1200px; /* 必要に応じて幅を制限 */
-    justify-content: center; /* グリッド要素の中央揃え */
-    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* グリッド幅を設定 */
+    gap: 15px; /* カード間の間隔 */
+    margin: 0 auto; /* 全体を中央揃え */
+    justify-content: center; /* グリッド内のカードを中央揃え */
+    align-items: center; /* 垂直方向の揃え */
+    max-width: 1200px; /* 必要に応じて最大幅を制限 */
+    padding: 0 20px; /* ページ端の余白を設定 */
 }
+
 
 /* 温泉カード */
 .onsen-card {
