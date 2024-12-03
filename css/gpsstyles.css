@@ -20,6 +20,8 @@ h1 {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
     margin-top: 20px;
+    justify-content: center; /* 水平方向の中央揃え */
+    align-items: center;    /* 垂直方向の中央揃え */
 }
 
 /* 温泉カード */
