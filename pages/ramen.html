@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #fff4e6; /* 明るい背景色 */
+            background-color: #fff4e6;
             margin: 0;
             padding: 20px;
             color: #333;
@@ -15,7 +15,7 @@
         }
 
         h1 {
-            color: #ff5733; /* 明るいオレンジ色 */
+            color: #ff5733;
             margin-bottom: 20px;
         }
 
@@ -41,166 +41,21 @@
             transform: scale(1.05);
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
         }
-
-        .ramen-item h2 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .ramen-item a {
-            color: #1CAAD9;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .ramen-item a:hover {
-            text-decoration: underline;
-        }
-
-        iframe {
-            width: 100%;
-            height: 250px;
-            border: none;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
     </style>
 </head>
 <body>
     <h1>かごしまラーメンビジュアルアート</h1>
     <div id="ramen-list"></div>
+
+    <!-- JavaScript を GitHub Pages で動的にロード -->
     <script>
-        const ramenData = [
-           {
-                name: "麺や。丁",
-                address: "鹿児島県鹿児島市宇宿３丁目２８−９",
-                sketchfabModelId: "0f584acbeb4744c0a601690070daee01"
-            },
-            {
-                name: "ざぼんラーメン",
-                address: "鹿児島県鹿児島市与次郎１丁目６−２０",
-                sketchfabModelId: "a57672a7934d4114ae87d374a786bceb"
-            },
-          {
-                name: "豚トロ",
-                address: "鹿児島市山之口町9-41",
-                sketchfabModelId: "979221163dcf41a78a487f50a6620337"
-            },{
-                name: "あぶらや",
-                address: "鹿児島市宇宿２丁目２３−１２",
-                sketchfabModelId: "6a1381eb9c2c4720a1aa6cf998f37ae5"
-            },
-          {
-                name: "麺屋ばってん親父",
-                address: "鹿児島市上荒田町３１−１８ アトムハウス 1F",
-                sketchfabModelId: "486a0f526eea4f78b4e2356a918142ac"
-            },
-            {
-                name: "油そば専門　兎",
-                address: "鹿児島市東千石町２０−５ T-MAXビル 1F",
-                sketchfabModelId: "21bd7bfb84ac4ef894df02d413ee957d"
-            },
-            {
-                name: "らーめんきよし家",
-                address: "鹿児島県日置市伊集院町郡２丁目７９",
-                sketchfabModelId: "d45ac7f710a0471a8b92f4feedbd466e"
-            },
-            {
-                name: "麺匠 樹凜",
-                address: "鹿児島市宇宿２丁目２５−２５",
-                sketchfabModelId: "a5e997a43ed848af8f2d959cbf07fcde"
-            },
-            {
-                name: "麺屋 雲雀",
-                address: "鹿児島市宇宿４丁目３８−６",
-                sketchfabModelId: "8ef784de9b984882ab4ca0051bcf66f4"
-            },
-            {
-                name: "えびすラーメン",
-                address: "鹿児島市谷山中央５丁目６−１３",
-                sketchfabModelId: "5ab2e08c76fe4cbea7526d215b18cc57"
-            },
-          {
-                name: "麺屋剛",
-                address: "鹿児島市武３丁目６−５",
-                sketchfabModelId: "fd4a0d39d31e44588c7913e6e17e0375"
-            },{
-                name: "魁力屋",
-                address: "鹿児島市東開町７",
-                sketchfabModelId: "5909225bf4b34d4fa93ba33d5f64bd09"
-            },{
-                name: "博多喜喜千日町9-13",
-                address: "鹿児島市",
-                sketchfabModelId: "8ad4ec49be0f4f279a2d16f5bcb5c223"
-            },{
-                name: "こむらさき",
-                address: "鹿児島市東千石町１１−１９",
-                sketchfabModelId: "faff85f4a39a4cabab498170c6e6a38d"
-            },{
-                name: "アイアイラーメン",
-                address: "鹿児島市新栄町３−１６",
-                sketchfabModelId: "08303065a8bb492ba318099b3ccb4e14"
-            },{
-                name: "十八番ラーメン",
-                address: "鹿児島市浜町２−３５",
-                sketchfabModelId: "f19fd8bf19f74664aea8bcc81ded31bd"
-            },{
-                name: "横浜家系ラーメン竜家",
-                address: "鹿児島市山田町１６４６−３",
-                sketchfabModelId: "f8579448e9bd464fb8d322bdbca91f4b"
-            },
-            {
-                name: "丸源ラーメン",
-                address: "鹿児島市新栄町７−６",
-                sketchfabModelId: "21c7fb328b8d4fb9936543cef6491361"
-            }
-        ];
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const ramenListElement = document.getElementById("ramen-list");
-
-            ramenData.forEach((ramen) => {
-                const item = document.createElement("div");
-                item.classList.add("ramen-item");
-
-                // 店舗名
-                const nameElement = document.createElement("h2");
-                nameElement.textContent = ramen.name;
-                item.appendChild(nameElement);
-
-                // Googleマップリンク
-                const addressLink = document.createElement("a");
-                addressLink.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ramen.address)}`;
-                addressLink.target = "_blank";
-                addressLink.textContent = `住所: ${ramen.address}`;
-                item.appendChild(addressLink);
-
-                // Sketchfab埋め込み
-                const iframe = document.createElement("iframe");
-                iframe.src = `https://sketchfab.com/models/${ramen.sketchfabModelId}/embed?autospin=1`;
-                iframe.title = ramen.name;
-                iframe.allow = "autoplay; fullscreen; xr-spatial-tracking";
-                item.appendChild(iframe);
-
-                ramenListElement.appendChild(item);
+        fetch("script.min.js")
+            .then(response => response.text())
+            .then(encoded => {
+                eval(atob(encoded));
             });
-        });
     </script>
 </body>
 </html>
-
-<script>
-document.addEventListener("contextmenu", function (e) {
-    e.preventDefault();
-});
-document.onkeydown = function (e) {
-    if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
-        alert("開発者ツールは禁止されています。");
-        return false;
-    }
-};
-</script>
 
 
