@@ -53,9 +53,9 @@
             .then(response => response.text())
             .then(encoded => {
                 eval(atob(encoded));
-            });
+                console.log("JavaScript ロード完了");
+            })
+            .catch(error => console.error("JavaScript のロードに失敗:", error));
     </script>
 </body>
 </html>
-
-
